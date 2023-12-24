@@ -5,20 +5,55 @@ import org.junit.jupiter.api.Test;
 
 
 public class RadioTest {
+
     @Test
+    public void shouldStationsCount1() {
+        Radio radio = new Radio(9);
 
-    public void shouldSetCurrentStation() {
-        Radio radio = new Radio();
+        radio.setCurrentStation(7);
 
-        radio.setCurrentStation(6);
-
-        int expected = 6;
+        int expected = 7;
         int actual = radio.getCurrentStation();
         Assertions.assertEquals(expected, actual);
+
     }
 
     @Test
+    public void shouldStationsCount2() {
+        Radio radio = new Radio(0);
 
+        radio.setCurrentStation(-1);
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void shouldMaxStations() {
+        Radio radio = new Radio();
+
+        radio.setCurrentStation(9);
+        int expected = 9;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void shouldMinStations() {
+        Radio radio = new Radio();
+
+        radio.setCurrentStation(-1);
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+
+    }
+
+
+    @Test
     public void shouldBelowMinSetCurrentStation1() {
         Radio radio = new Radio();
 
